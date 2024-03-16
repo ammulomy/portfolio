@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Ammu Lomy</title>
         <link rel="icon" href="https://scontent.fblr2-3.fna.fbcdn.net/v/t1.6435-1/92396076_917068238712415_1312595503770238976_n.jpg?stp=dst-jpg_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=isepvL9KyugAX9c0XHz&_nc_ht=scontent.fblr2-3.fna&oh=00_AfB1HM4aBFf5bWqzlFs-9qPbNvovBE65pUx-4gtXFGRdaQ&oe=6617CF9F" type="image/gif" sizes="16x16">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -180,24 +181,24 @@
                 <h1 class="text-center">Contact Me</h1>
         		<div class="row">
         			<div class="col-md-12">
-        				<form action="https://api.web3forms.com/submit" method="POST">
+        				<form id="submit-form" action="" >
   							<div class="form-row">
-                            	<input type="hidden" name="access_key" value="57e26934-709f-487e-972e-6030fb10d509"/>
+                            	
     							<div class="form-group col-md-6 m-auto">
       								<label for="inputEmail4">Name</label>
-      								<input type="text" class="form-control" name="name" required placeholder="Name" />
+      								<input type="text" class="form-control" name="Name" required placeholder="Name" />
     							</div>
   							</div>
     						<div class="form-group col-md-6 m-auto">
       							<label for="inputEmail4">Email</label>
-      							<input type="email" class="form-control" name="email" required placeholder="abc@gmail.com" />
+      							<input type="email" class="form-control" name="Email" required placeholder="abc@gmail.com" />
     						</div>
   							<div class="form-group col-md-6 m-auto">
     							<label for="inputAddress">Message</label>
-                                <textarea name="msg" class="form-control" rows="10" cols="30" required placeholder="Type your message here..."></textarea>
+                                <textarea name="Message" class="form-control" rows="10" cols="30" required placeholder="Type your message here..."></textarea>
   							</div>
                             <div class="form-group col-md-6 m-auto text-center pt-3" >
-								<button type="submit" name="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+								<button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
                             </div>
 						</form>
 					</div>
@@ -217,10 +218,28 @@
                 </div>
             </div>
         </footer>
-       
+       <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbyrEDnUf2rgo40H9BnW9XYPSX7N-AvmCqWdVcK8Fo0fgKkX5_OZy2mu5X49Iy6aBqM/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/d28ac72c63.js" crossorigin="anonymous"></script>
-
+		 
     </body>
 	
 </html>
